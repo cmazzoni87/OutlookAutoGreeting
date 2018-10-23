@@ -1,8 +1,11 @@
+Option Explicit
 Sub OutlookAutoGreeting()
 
     Dim origEmail As MailItem: Set origEmail = ActiveExplorer.Selection(1)
     Dim replyEmail As MailItem: Set replyEmail = origEmail.ReplyAll
-    
+    Dim SenderName1 as String
+    Dim SenderName2 as String
+            
     'Get current time
     Dim LHour: LHour = Hour(Now)
     
@@ -15,10 +18,10 @@ Sub OutlookAutoGreeting()
     SenderName = SenderName2 & SenderName1
     
     'Generate time-dependent salutation
-    Dim Morning: Morning = "Good morning "
-    Dim Afternoon: Afternoon = "Good afternoon "
-    Dim Evening: Evening = "Good evening "
-    Dim TimeOfDay
+	Dim Morning As String = "Good morning "
+	Dim Afternoon As String = "Good afternoon "
+	Dim Evening As String = "Good evening "
+	Dim TimeOfDay As String
     
     If (LHour <= 11) Then
         TimeOfDay = Morning
